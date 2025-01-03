@@ -6,6 +6,7 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: '首页', link: '/' },
+      { text: 'API 指南', link: '/bmob-api-guide' },
       { text: 'API 文档', link: '/api/' }
     ],
     
@@ -15,11 +16,23 @@ export default defineConfig({
           text: 'API 文档',
           items: [
             { text: '简介', link: '/api/' },
-            { text: '数据表操作', link: '/api/table' },
+            { text: '数据操作', link: '/api/data' },
+            { text: '查询操作', link: '/api/query' },
             { text: '用户管理', link: '/api/users' },
             { text: '文件管理', link: '/api/files' },
             { text: '云函数', link: '/api/functions' },
-            { text: '数据实时功能', link: '/api/realtime' }
+            { text: '实时数据', link: '/api/realtime' },
+            { text: '错误处理', link: '/api/errors' },
+            { text: '安全指南', link: '/api/security' }
+          ]
+        }
+      ],
+      '/': [
+        {
+          text: '指南',
+          items: [
+            { text: 'API 开发指南', link: '/bmob-api-guide' },
+            { text: '示例代码', link: '/api-examples' }
           ]
         }
       ]
