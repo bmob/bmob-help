@@ -1,0 +1,9 @@
+Bmob 文档中心，为开发者提供 Bmob 产品文档，包含微信小程序文档，api文档，sdk文档，以及Bmob 云函数文档。
+project_type: vitepress
+rules:
+  - 所有配置使用 TypeScript
+  - 保持 Markdown 语法和结构的一致性
+  - 利用 VitePress 的功能进行导航和主题定制
+  - 为所有代码示例提供详细的文档注释
+  - 确保所有链接经过验证且功能正常
+  - 启用热模块替换以方便开发
