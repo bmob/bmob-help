@@ -5,25 +5,30 @@
 
 请求示例：
 
+```bash
 curl -X POST \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   -H "Content-Type: application/json" \
   -d '{"score":1337,"playerName":"Sean Plott","cheatMode":false}' \
   https://api.bmob.cn/1/classes/GameScore
+```
 
 响应示例：
 
+```json
 {
   "createdAt": "2011-08-20 02:06:57",
   "objectId": "e1kXT22L"
 }
+```
 
 ## 批量创建数据
 一次创建多条数据记录。
 
 请求示例：
 
+```bash
 curl -X POST \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
@@ -49,36 +54,44 @@ curl -X POST \
     ]
   }' \
   https://api.bmob.cn/1/batch
+```
 
 ## 更新数据
 更新一条已存在的数据记录。
 
 请求示例：
 
+```bash
 curl -X PUT \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   -H "Content-Type: application/json" \
   -d '{"score":73453}' \
   https://api.bmob.cn/1/classes/GameScore/e1kXT22L
+```
 
 ## 计数器
 原子计数器可以让计数字段自增或自减。
 
 请求示例：
 
+```bash
 curl -X PUT \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   -H "Content-Type: application/json" \
   -d '{"score":{"__op":"Increment","amount":1}}' \
   https://api.bmob.cn/1/classes/GameScore/e1kXT22L
+```
 
 ## 数组操作
 向数组字段添加或删除元素。
 
 ### 添加元素
 
+请求示例：
+
+```bash
 curl -X PUT \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
@@ -90,9 +103,13 @@ curl -X PUT \
     }
   }' \
   https://api.bmob.cn/1/classes/GameScore/e1kXT22L
+```
 
 ### 删除元素
 
+请求示例：
+
+```bash
 curl -X PUT \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
@@ -104,28 +121,33 @@ curl -X PUT \
     }
   }' \
   https://api.bmob.cn/1/classes/GameScore/e1kXT22L
+```
 
 ## 删除数据
 删除一条数据记录。
 
 请求示例：
 
+```bash
 curl -X DELETE \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   https://api.bmob.cn/1/classes/GameScore/e1kXT22L
+```
 
 ## 删除字段
 删除对象中的某个字段。
 
 请求示例：
 
+```bash
 curl -X PUT \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   -H "Content-Type: application/json" \
   -d '{"fieldName":{"__op":"Delete"}}' \
   https://api.bmob.cn/1/classes/GameScore/e1kXT22L
+```
 
 ## 数据关联
 
@@ -134,6 +156,7 @@ curl -X PUT \
 
 请求示例：
 
+```bash
 curl -X POST \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
@@ -147,22 +170,26 @@ curl -X POST \
     }
   }' \
   https://api.bmob.cn/1/classes/GameScore
+```
 
 ### 查询关联对象
 查询时可以返回关联对象的详细信息。
 
 请求示例：
 
+```bash
 curl -X GET \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   https://api.bmob.cn/1/classes/GameScore?include=game
+```
 
 ### 关联数组
 一个对象可以关联多个其他对象。
 
 请求示例：
 
+```bash
 curl -X POST \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
@@ -186,6 +213,7 @@ curl -X POST \
     }
   }' \
   https://api.bmob.cn/1/classes/GameScore
+```
 
 ## 原子操作
 
@@ -194,6 +222,7 @@ curl -X POST \
 
 请求示例：
 
+```bash
 curl -X PUT \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
@@ -205,12 +234,14 @@ curl -X PUT \
     }
   }' \
   https://api.bmob.cn/1/classes/GameScore/e1kXT22L
+```
 
 ### 数组原子操作
 对数组字段进行原子添加或删除操作。
 
 请求示例：
 
+```bash
 curl -X PUT \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
@@ -222,6 +253,7 @@ curl -X PUT \
     }
   }' \
   https://api.bmob.cn/1/classes/GameScore/e1kXT22L
+```
 
 ## 批量操作
 
@@ -230,6 +262,7 @@ curl -X PUT \
 
 请求示例：
 
+```bash
 curl -X POST \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
@@ -253,12 +286,14 @@ curl -X POST \
     ]
   }' \
   https://api.bmob.cn/1/batch
+```
 
 ### 批量删除
 一次删除多条数据。
 
 请求示例：
 
+```bash
 curl -X POST \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
@@ -276,6 +311,7 @@ curl -X POST \
     ]
   }' \
   https://api.bmob.cn/1/batch
+```
 
 ## 注意事项
 

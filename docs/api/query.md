@@ -5,10 +5,12 @@
 
 请求示例：
 
+```bash
 curl -X GET \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   https://api.bmob.cn/1/classes/GameScore?where={"playerName":"Sean Plott"}
+```
 
 ## 条件查询
 
@@ -17,10 +19,12 @@ curl -X GET \
 
 请求示例：
 
+```bash
 curl -X GET \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   https://api.bmob.cn/1/classes/GameScore?where={"score":{"$gt":1000}}
+```
 
 支持的比较操作符：
 - `$lt`: 小于
@@ -41,20 +45,24 @@ curl -X GET \
 
 请求示例：
 
+```bash
 curl -X GET \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   https://api.bmob.cn/1/classes/GameScore?where={"skills":{"$all":["flying","kungfu"]}}
+```
 
 ### 字符串查询
 使用正则表达式进行模糊查询。
 
 请求示例：
 
+```bash
 curl -X GET \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   https://api.bmob.cn/1/classes/GameScore?where={"playerName":{"$regex":"^Sean"}}
+```
 
 ## 复合查询
 
@@ -63,20 +71,24 @@ curl -X GET \
 
 请求示例：
 
+```bash
 curl -X GET \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   https://api.bmob.cn/1/classes/GameScore?where={"score":{"$gt":1000},"playerName":"Sean Plott"}
+```
 
 ### OR 查询
 使用 $or 操作符进行或查询。
 
 请求示例：
 
+```bash
 curl -X GET \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   https://api.bmob.cn/1/classes/GameScore?where={"$or":[{"score":{"$gt":1000}},{"playerName":"Sean Plott"}]}
+```
 
 ## 结果控制
 
@@ -85,30 +97,36 @@ curl -X GET \
 
 请求示例：
 
+```bash
 curl -X GET \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   https://api.bmob.cn/1/classes/GameScore?order=-score,name
+```
 
 ### 分页查询
 使用 limit 和 skip 参数进行分页。
 
 请求示例：
 
+```bash
 curl -X GET \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   https://api.bmob.cn/1/classes/GameScore?limit=20&skip=20
+```
 
 ### 字段选择
 使用 keys 参数选择返回的字段。
 
 请求示例：
 
+```bash
 curl -X GET \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   https://api.bmob.cn/1/classes/GameScore?keys=score,playerName
+```
 
 ## 关联查询
 
@@ -117,20 +135,24 @@ curl -X GET \
 
 请求示例：
 
+```bash
 curl -X GET \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   https://api.bmob.cn/1/classes/GameScore?include=game
+```
 
 ### 关联表查询
 查询关联表中的数据。
 
 请求示例：
 
+```bash
 curl -X GET \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   https://api.bmob.cn/1/classes/GameScore?where={"game":{"$inQuery":{"where":{"type":"RPG"},"className":"Game"}}}
+```
 
 ## 计数查询
 
@@ -139,10 +161,12 @@ curl -X GET \
 
 请求示例：
 
+```bash
 curl -X GET \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   https://api.bmob.cn/1/classes/GameScore?count=1&limit=0
+```
 
 ## 注意事项
 

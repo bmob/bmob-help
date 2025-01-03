@@ -8,7 +8,9 @@ Bmob 提供了强大的 RESTful API，让开发者能够通过 HTTP 请求进行
 
 ### 基础 URL
 所有 API 请求都使用以下基础 URL：
-`https://api.bmob.cn/1/`
+```bash
+https://api.bmob.cn/1/
+```
 
 ### 请求格式
 所有的 API 请求都应该使用 HTTPS，并且需要在 Header 中包含以下信息：
@@ -30,19 +32,23 @@ Bmob 提供了强大的 RESTful API，让开发者能够通过 HTTP 请求进行
 
 请求示例：
 
+```bash
 curl -X POST \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   -H "Content-Type: application/json" \
   -d '{"score":1337,"playerName":"Sean Plott","cheatMode":false}' \
   https://api.bmob.cn/1/classes/GameScore
+```
 
 响应示例：
 
+```json
 {
   "createdAt": "2011-08-20 02:06:57",
   "objectId": "e1kXT22L"
 }
+```
 
 ### 查询数据
 
@@ -51,57 +57,68 @@ curl -X POST \
 
 请求示例：
 
+```bash
 curl -X GET \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   https://api.bmob.cn/1/classes/GameScore/e1kXT22L
+```
 
 #### 查询多个对象
 获取一个数据表中的多个对象。
 
 请求示例：
 
+```bash
 curl -X GET \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   https://api.bmob.cn/1/classes/GameScore
+```
 
 ### 更新数据
 更新一个已经存在的对象。
 
 请求示例：
 
+```bash
 curl -X PUT \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   -H "Content-Type: application/json" \
   -d '{"score":73453}' \
   https://api.bmob.cn/1/classes/GameScore/e1kXT22L
+```
 
 ### 删除数据
 删除一个已经存在的对象。
 
 请求示例：
 
+```bash
 curl -X DELETE \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   https://api.bmob.cn/1/classes/GameScore/e1kXT22L
+```
 
 ## 查询约束
 
 ### 基础查询
 使用 where 参数进行基础的相等查询：
 
+```json
 {
   "where": {
     "playerName": "Sean Plott"
   }
 }
+```
 
 ### 比较查询
 支持多种比较查询操作符：
 
+```json
 {
   "where": {
     "score": {
@@ -109,6 +126,7 @@ curl -X DELETE \
     }
   }
 }
+```
 
 支持的比较操作符：
 - `$lt`: 小于
@@ -124,42 +142,6 @@ curl -X DELETE \
 - `$all`: 包含所有给定的值
 - `$regex`: 正则表达式匹配
 
-### 复合查询
-使用 $or 和 $and 进行复合查询：
-
-{
-  "where": {
-    "$or": [
-      {"wins": {"$gt": 150}},
-      {"wins": {"$lt": 5}}
-    ]
-  }
-}
-
-### 排序
-使用 order 参数进行排序，前缀 `-` 表示降序：
-
-curl -X GET \
-  -H "X-Bmob-Application-Id: Your Application ID" \
-  -H "X-Bmob-REST-API-Key: Your REST API Key" \
-  https://api.bmob.cn/1/classes/GameScore?order=-score,name
-
-### 分页查询
-使用 limit 和 skip 参数进行分页：
-
-curl -X GET \
-  -H "X-Bmob-Application-Id: Your Application ID" \
-  -H "X-Bmob-REST-API-Key: Your REST API Key" \
-  https://api.bmob.cn/1/classes/GameScore?limit=20&skip=20
-
-### 计数查询
-使用 count 参数获取查询结果的数量：
-
-curl -X GET \
-  -H "X-Bmob-Application-Id: Your Application ID" \
-  -H "X-Bmob-REST-API-Key: Your REST API Key" \
-  https://api.bmob.cn/1/classes/GameScore?count=1&limit=0
-
 ## 用户管理
 
 ### 用户注册
@@ -167,33 +149,26 @@ curl -X GET \
 
 请求示例：
 
+```bash
 curl -X POST \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   -H "Content-Type: application/json" \
   -d '{"username":"cooldude","password":"p_n7!-e8","phone":"415-392-0202"}' \
   https://api.bmob.cn/1/users
+```
 
 ### 用户登录
 验证用户身份并获取 session token。
 
 请求示例：
 
+```bash
 curl -X GET \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   https://api.bmob.cn/1/login?username=cooldude&password=p_n7!-e8
-
-### 获取当前用户
-获取当前登录用户的信息。
-
-请求示例：
-
-curl -X GET \
-  -H "X-Bmob-Application-Id: Your Application ID" \
-  -H "X-Bmob-REST-API-Key: Your REST API Key" \
-  -H "X-Bmob-Session-Token: r:pnktnjyb996sj4p156gjtp4im" \
-  https://api.bmob.cn/1/users/me
+```
 
 ## 文件管理
 
@@ -202,22 +177,26 @@ curl -X GET \
 
 请求示例：
 
+```bash
 curl -X POST \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   -H "Content-Type: image/jpeg" \
   --data-binary "@myPicture.jpg" \
   https://api.bmob.cn/2/files/pic.jpg
+```
 
 ### 删除文件
 删除已上传的文件。
 
 请求示例：
 
+```bash
 curl -X DELETE \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   https://api.bmob.cn/2/files/pic.jpg
+```
 
 ## 云函数
 
@@ -226,21 +205,25 @@ curl -X DELETE \
 
 请求示例：
 
+```bash
 curl -X POST \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   -H "Content-Type: application/json" \
   -d '{"name": "张三"}' \
   https://api.bmob.cn/1/functions/hello
+```
 
 ## 错误处理
 
 当 API 请求失败时，会返回对应的错误码和错误信息：
 
+```json
 {
   "code": 101,
   "error": "object not found for e1kXT22L"
 }
+```
 
 ### 常见错误码
 

@@ -7,26 +7,31 @@
 
 请求示例：
 
+```bash
 curl -X POST \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   -H "Content-Type: image/jpeg" \
   --data-binary "@myPicture.jpg" \
   https://api.bmob.cn/2/files/pic.jpg
+```
 
 响应示例：
 
+```json
 {
   "filename": "pic.jpg",
   "url": "http://bmob-cdn-1.b0.upaiyun.com/pic.jpg",
   "cdn": "upyun"
 }
+```
 
 ### Base64 上传
 上传 Base64 编码的文件内容。
 
 请求示例：
 
+```bash
 curl -X POST \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
@@ -36,12 +41,14 @@ curl -X POST \
     "filename": "pic.jpg"
   }' \
   https://api.bmob.cn/2/files/pic.jpg
+```
 
 ### 文件关联
 将文件关联到数据对象。
 
 请求示例：
 
+```bash
 curl -X POST \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
@@ -55,6 +62,7 @@ curl -X POST \
     }
   }' \
   https://api.bmob.cn/1/classes/GameScore
+```
 
 ## 文件删除
 
@@ -63,16 +71,19 @@ curl -X POST \
 
 请求示例：
 
+```bash
 curl -X DELETE \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   https://api.bmob.cn/2/files/upyun/pic.jpg
+```
 
 ### 批量删除
 一次删除多个文件。
 
 请求示例：
 
+```bash
 curl -X POST \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
@@ -84,6 +95,7 @@ curl -X POST \
     ]
   }' \
   https://api.bmob.cn/2/files/batch/delete
+```
 
 ## 文件访问
 
@@ -97,17 +109,21 @@ curl -X POST \
 
 请求示例：
 
+```bash
 curl -X GET \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   https://api.bmob.cn/2/files/token/pic.jpg
+```
 
 响应示例：
 
+```json
 {
   "url": "http://bmob-cdn-1.b0.upaiyun.com/pic.jpg?token=xxxx",
   "expires": 3600
 }
+```
 
 ## 图片处理
 
@@ -173,6 +189,7 @@ http://bmob-cdn-1.b0.upaiyun.com/pic.jpg!png
 
 请求示例：
 
+```bash
 curl -X PUT \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
@@ -183,6 +200,7 @@ curl -X PUT \
     "allowEmpty": false
   }' \
   https://api.bmob.cn/2/files/security
+```
 
 参数说明：
 - domains: 允许访问的域名列表
@@ -194,6 +212,7 @@ curl -X PUT \
 
 请求示例：
 
+```bash
 curl -X POST \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
@@ -204,6 +223,7 @@ curl -X POST \
     "algorithm": "AES-256-CBC"
   }' \
   https://api.bmob.cn/2/files/pic.jpg
+```
 
 ## 注意事项
 

@@ -10,29 +10,35 @@
 
 请求示例:
 
+```bash
 curl -X POST \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   -H "Content-Type: application/json" \
   -d '{"name":"张三"}' \
   https://api.bmob.cn/1/functions/hello
+```
 
 响应示例:
 
+```json
 {
   "result": "你好,张三"
 }
+```
 
 ### 无参数调用
 
 请求示例:
 
+```bash
 curl -X POST \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
   -H "Content-Type: application/json" \
   -d '{}' \
   https://api.bmob.cn/1/functions/test
+```
 
 注意:即使不需要参数,也必须传入空对象 '{}'
 
@@ -40,6 +46,7 @@ curl -X POST \
 
 请求示例:
 
+```bash
 curl -X POST \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
@@ -53,6 +60,7 @@ curl -X POST \
     "platform": "ios"
   }' \
   https://api.bmob.cn/1/functions/userRegister
+```
 
 ## 云函数限制
 
@@ -123,6 +131,7 @@ curl -X POST \
 
 用户注册示例:
 
+```bash
 curl -X POST \
   -H "X-Bmob-Application-Id: Your Application ID" \
   -H "X-Bmob-REST-API-Key: Your REST API Key" \
@@ -133,9 +142,11 @@ curl -X POST \
     "email": "test@example.com"
   }' \
   https://api.bmob.cn/1/functions/register
+```
 
 响应结果:
 
+```json
 {
   "result": {
     "code": 200,
@@ -148,3 +159,4 @@ curl -X POST \
     }
   }
 }
+```
