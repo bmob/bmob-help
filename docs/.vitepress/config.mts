@@ -4,6 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "Bmob 文档",
   description: "Bmob 文档中心",
+  base: '/bmob-help/',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
